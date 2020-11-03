@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <head>
-  <script src="js/main.js"></script>
   <?php include "nav.php" ?>
   <style>
   @keyframes errorUser {

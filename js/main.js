@@ -69,7 +69,12 @@ function addUser() {
     }
   })
     .then(function(result) {
-      console.log(result);
+      result = JSON.parse(result);
+      if(result.success) {
+        location.replace(result.redirect);
+      } else {
+        document.getElementById("feedback").innerText = result.error;
+      }
     });
 }
 

@@ -282,16 +282,30 @@ if(isset($_POST["request"])) {
   }
 
   if($_POST["request"] == "addUser") {
+    $users = $conn->query("SELECT name FROM users WHERE name=\"{$_POST["uname"]}\"");
     $stmt = $conn->prepare("INSERT INTO users (name, pwd, email) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $uname, $pwd, $email);
 
     $pwd = password_hash(trim($_POST["pwd"]), PASSWORD_DEFAULT);
     $uname = $_POST["uname"];
     $email = hash("sha256", trim($_POST["email"]));
-    echo $uname;
 
-    $stmt->execute();
+
+
+    $out = new \stdClass();
+    $out->error = "";
+    if ($users->num_rows > 0) {
+      $out->error = "{$out->error} A User with that username already exists!\n";
+    } else {
+      $stmt->execute();
+      $out->error = "{$out->error} Signed up!\n";
+      $out->success = true;
+      $out->redirect = "usermenu.php?q=0";
+    }
     $stmt->close();
+
+    $out = json_encode($out);
+    echo $out;
   }
 
   if($_POST["request"] == "checkUser") {
@@ -304,7 +318,9 @@ if(isset($_POST["request"])) {
 
     $out = new \stdClass();
     $out->success = password_verify(trim($_POST["pwd"]), $user["pwd"]);
-    if(password_verify(trim($_POST["pwd"]), $user["pwd"])) {
+    if(!($users->num_rows > 1)) {
+      $out->error = "Wrong Username or Password";
+    } else if (password_verify(trim($_POST["pwd"]), $user["pwd"])) {
       $_SESSION["uname"] = $user["name"];
       $_SESSION["uid"] = $user["id"];
       $out->redirect = "index.php";

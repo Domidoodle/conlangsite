@@ -79,7 +79,7 @@ if(!(checkUserPerms($conn, $conlang["id"]))) {
         </form>
 
         <ul id="addMeaning">
-          <button onclick="addMeaning()" style="text-align: left;">Add Another Meaning</button>
+          <a onclick="addMeaning()" style="text-align: left;">Add a Meaning</a>
         </ul>
 
 
