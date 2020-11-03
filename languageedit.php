@@ -83,6 +83,9 @@ if(isset($_GET["l"])) {
             </div>
           </div>
         </form>
+        <p>
+          This page automatically saves data.
+        </p>
       </div>
     </div>
   </div>

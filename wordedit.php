@@ -82,7 +82,9 @@ if(!(checkUserPerms($conn, $conlang["id"]))) {
           <a onclick="addMeaning()" style="text-align: left;">Add a Meaning</a>
         </ul>
 
-
+        <p>
+          This page automatically saves data.
+        </p>
       </div>
     </div>
   </div>
