@@ -55,7 +55,8 @@ function addUser() {
   pwd = document.getElementById("passw");
 
   if (email.value == "" || uname.value == "" || pwd.value == "") {
-    return "no";
+    document.getElementById("feedback").innerText = "All fields must be filled";
+    return 1;
   }
 
   request({
