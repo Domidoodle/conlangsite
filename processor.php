@@ -322,7 +322,7 @@ if(isset($_POST["request"])) {
 
     $out = new \stdClass();
     $out->success = password_verify(trim($_POST["pwd"]), $user["pwd"]);
-    if(!($users->num_rows > 1)) {
+    if($users->num_rows == 0) {
       $out->error = "Wrong Username or Password";
     } else if (password_verify(trim($_POST["pwd"]), $user["pwd"])) {
       $_SESSION["uname"] = $user["name"];
