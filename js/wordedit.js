@@ -27,7 +27,7 @@ function saveMeaning() {
       request: "saveMeaning",
       m: firer.parentElement.id,
       field: firer.name,
-      value: firer.value
+      value: firer.value.replace("<br />", "")
     }
   });
 }
@@ -59,7 +59,7 @@ function save() {
       request: "save",
       w: params.get("w"),
       field: firer.name,
-      value: firer.value
+      value: firer.value.replace("<br />", "")
     }
   })
     .then(function(result) {

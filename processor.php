@@ -193,7 +193,7 @@ if(isset($_POST["request"])) {
             <label for="meaning"><p>Additional Meaning</p></label>
             <input name="meaning" type="text" onfocusout="saveMeaning()" value="' . $meaning["meaning"] . '"/>
             <label for="example"><p>Example of Meaning</p></label>
-            <textarea name="example" style="height: 8em;" onfocusout="saveMeaning()">' . $meaning["example"] . '<br />' . $meaning["example_english"] . '</textarea>
+            <textarea name="example" style="height: 8em;" onfocusout="saveMeaning()">' . $meaning["example"] . $meaning["example_english"] . '</textarea>
         </form>
       </ul>
       ';
