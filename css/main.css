@@ -1,5 +1,10 @@
+@font-face {
+  font-family: "f0";
+  src: url("../fonts/LiberationSans/LiberationSans-Regular.ttf");
+}
+
 html {
-  font-family: sans-serif;
+  font-family: f0, sans-serif;
   min-height: 100%;
 }
 
@@ -260,6 +265,7 @@ p {
   width: 1.5em;
   height: 1.5em;
 }
+
 
 /* MOBILE */
 @media screen and (max-width: 800px) {
