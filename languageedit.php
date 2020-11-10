@@ -66,7 +66,6 @@ if(isset($_GET["l"])) {
               <a onclick="addLanguage()"><br />Create Language</a>
               <?php } ?>
               <?php if((isset($_GET["l"]))) { ?>
-              <a onclick="deleteLanguage()"><br />DELETE Language</a>
               <?php } ?>
             </div>
             <div style="width: 100%;"></div>
@@ -82,6 +81,7 @@ if(isset($_GET["l"])) {
               </div>
             </div>
           </div>
+          <a onclick="deleteLanguage()"><br />DELETE Language</a>
         </form>
         <p>
           This page automatically saves data.
