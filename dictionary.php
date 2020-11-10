@@ -64,7 +64,7 @@ if(!(isset($_GET["l"]))) {
               </th>
               <?php
               if(isset($_SESSION["uid"])) {
-                print "<th style=\"width: auto; display: flex; opacity: 0;\"><a>Edit</a><a>Delete</a></th>";
+                print "<th style=\"width: auto; display: flex; opacity: 0; flex-grow: 0;\"><a>Edit</a><a>Delete</a></th>";
               }
               ?>
             </tr>

@@ -28,7 +28,7 @@ include "nav.php";
           <th>
             Editors
           </th>
-          <th style="width: auto; display: flex; opacity: 0;">
+          <th style="width: auto; display: flex; opacity: 0; flex-grow: 0;">
             <a>Edit</a>
           </th>
         </tr>

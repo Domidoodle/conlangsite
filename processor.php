@@ -228,9 +228,9 @@ if(isset($_POST["request"])) {
              <th>" . $editorsList . "</th>";
 
      if(checkUserPerms($conn, $language["id"])) {
-       $HTML = $HTML . "<th style=\"width: auto; display: flex;\"><a href=\"languageedit.php?l=" . $language["id"] . "\">Edit</a></th>";
+       $HTML = $HTML . "<th style=\"width: auto; display: flex; flex-grow: 0;\"><a href=\"languageedit.php?l=" . $language["id"] . "\">Edit</a></th>";
      } else {
-       $HTML = $HTML . "<th style=\"width: auto; display: flex; opacity: 0;\">Edit</th>";
+       $HTML = $HTML . "<th style=\"width: auto; display: flex; opacity: 0; flex-grow: 0;\">Edit</th>";
      }
      $HTML = $HTML . "</tr>";
      $out->HTML = $out->HTML . $HTML;
@@ -278,7 +278,7 @@ if(isset($_POST["request"])) {
 
 
       if(checkUserPerms($conn, $language["id"])) {
-        print "<th style=\"width: auto; display: flex;\"><a href=\"wordedit.php?w=" . $word["id"] . "\">Edit</a><a onclick=\"deleteWord()\" name=" . $word["id"] . ">Delete</a></th>";
+        print "<th style=\"width: auto; display: flex; flex-grow: 0;\"><a href=\"wordedit.php?w=" . $word["id"] . "\">Edit</a><a onclick=\"deleteWord()\" name=" . $word["id"] . ">Delete</a></th>";
       }
 
       print "</tr>";
