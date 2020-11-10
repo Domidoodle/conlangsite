@@ -50,11 +50,12 @@ svg {
 }
 
 .menu a {
-  width: 100%;
+  flex-grow: 1;
   padding: 0.25em;
   font-size: 1.125em;
   color: white;
   box-sizing: border-box;
+  flex-basis: 0;
 }
 
 .menu a:hover {
@@ -75,12 +76,13 @@ svg {
   margin-left: auto;
   flex-direction: row;
   display: flex;
-  width: 100%;
+  justify-content: space-between;
 }
 
 .spand {
   flex-direction: column;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .span ul {
@@ -179,6 +181,10 @@ svg {
   border-style: none none solid none;
   border-color: #3C99DC;
   border-width: 8px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .wrapper {
@@ -267,6 +273,7 @@ p {
 }
 
 
+
 /* MOBILE */
 @media screen and (max-width: 800px) {
   .margins {
@@ -277,9 +284,16 @@ p {
     width: 95%;
   }
 
+  .header {
+    padding: 0.5em;
+  }
+
   .menu {
     flex-direction: column;
-    box-sizing: border-box;
+  }
+
+  .menu a {
+    width: 100%;
   }
 
   .search {
