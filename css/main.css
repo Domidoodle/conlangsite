@@ -3,6 +3,11 @@
   src: url("../fonts/LiberationSans/LiberationSans-Regular.ttf");
 }
 
+@font-face {
+  font-family: "f";
+  src: url("../fonts/LiberationSans/LiberationSans-Regular.ttf");
+}
+
 html {
   font-family: f0, sans-serif;
   min-height: 100%;
@@ -27,6 +32,7 @@ button {
   font-size: inherit;
   padding: 0px;
   background-color: transparent;
+  color: #3C99DC;
 }
 
 h1 {
@@ -62,6 +68,7 @@ svg {
   color: #3C99DC;
   background-color: #EFEFEF;
 }
+
 .login a {
   text-align: right;
   color: white;
@@ -309,4 +316,20 @@ p {
     flex-direction: row-reverse;
     padding: 0.5em;
   }*/
+}
+
+input::-webkit-input-placeholder {
+  font-family: LiberationSans, sans-serif;
+}
+
+input:-ms-input-placeholder {
+  font-family: LiberationSans, sans-serif;
+}
+
+input:-moz-placeholder {
+  font-family: LiberationSans, sans-serif;
+}
+
+input::-moz-placeholder {
+  font-family: LiberationSans, sans-serif;
 }

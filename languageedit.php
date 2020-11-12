@@ -60,6 +60,7 @@ if(isset($_GET["l"])) {
             <div class="spand" style="width: 150%;">
               <label for="name"><p>Name in Language</p></label>
               <input id="named" name="name" type="text" value="<?php if(isset($_GET["l"])) { print $conlang["name"]; } ?>" style="font-family: <?php print "f" . $conlang['script_id'];?>;" onfocusout="save()"/>
+              <script>loadScript(<?php print $conlang["script_id"] ?>);</script>
               <label for="pronunciation"><p>Pronunciation (IPA)</p></label>
               <input id="pronunciation" name="pronunciation" type="text" value="<?php if(isset($_GET["l"])) { print $conlang["pronunciation"]; } ?>"  onfocusout="save()"/>
               <?php if(!(isset($_GET["l"]))) { ?>
@@ -76,7 +77,7 @@ if(isset($_GET["l"])) {
               <input id="script_id" name="script_id" type="text" value="<?php if(isset($_GET["l"])) { print $conlang["script_id"]; } ?>"  onfocusout="save()"/>
               <div style="opacity: 0.75;">
                 <?php if(isset($_GET["l"]) and isset($conlang["script_id"])) { ?>
-                Currently using<a><?php print $conlang["script_name"]; ?></a>as the default script for this language.
+                Currently using <a><?php print $conlang["script_name"]; ?></a>as the default script for this language.
                 <?php } ?>
               </div>
             </div>

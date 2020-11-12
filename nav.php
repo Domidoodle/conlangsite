@@ -36,7 +36,7 @@ include "processor.php";
         <!-- <h1 style="padding-right: 10px;"><?php ?></h1> -->
         <div class="search">
           <form class="span" onsubmit="return searching()">
-            <input id="search" type="text" name="search" />
+            <input id="search" type="text" name="search" placeholder="Search"/>
             <select id="searchType" name="searchType" onchange="updateSearchScript()">
               <option value="name">
                 Searching by Name

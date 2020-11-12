@@ -18,7 +18,13 @@
 <body>
   <div class="page">
     <div class="wrapper">
-      <form id="register">
+      <form id="register" method="post"
+        <?php if($_GET["q"] == 1) { ?>
+          onsubmit="addUser(); return false;"
+        <?php } else { ?>
+          onsubmit="checkUser(); return false;"
+        <?php } ?>
+      >
         <div class="spand">
           <?php if($_GET["q"] == 1) { ?>
           <label for="email">Email</label>
@@ -29,12 +35,12 @@
           <label for="pwd">Password</label>
           <input id="passw" name="pwd" type="password"/>
         </div>
+        <?php if($_GET["q"] == 1) { ?>
+          <button type="submit">Sign up</button>
+        <?php } else { ?>
+          <button type="submit">Log in</button>
+        <?php } ?>
       </form>
-      <?php if($_GET["q"] == 1) { ?>
-      <a onclick="addUser()">Sign up</a>
-      <?php } else { ?>
-      <a onclick="checkUser()">Log in</a>
-      <?php } ?>
       <p id="feedback">
       </p>
     </div>

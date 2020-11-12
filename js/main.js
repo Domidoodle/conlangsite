@@ -56,7 +56,7 @@ function addUser() {
 
   if (email.value == "" || uname.value == "" || pwd.value == "") {
     document.getElementById("feedback").innerText = "All fields must be filled";
-    return 1;
+    return false;
   }
 
   request({
@@ -76,6 +76,7 @@ function addUser() {
       } else {
         document.getElementById("feedback").innerText = result.error;
       }
+      return false;
     });
 }
 
@@ -115,6 +116,7 @@ function checkUser() {
       } else {
         document.getElementById("feedback").innerText = result.error;
       }
+      return false;
     });
 }
 
@@ -148,8 +150,13 @@ function checkUserPerms(conlang_id) {
 }
 
 function loadScript(script_id) { //MUST BE CALLED WHEN SCRIPT IS USED
+  console.log(script_id);
   sheet = document.createElement("style");
-  sheet.innerHTML += `@font-face { font-family: "f${script_id}"; src: url("fonts/${script_id}.ttf"); }`
+  if (script_id == undefined) {
+    return false;
+  } else {
+    sheet.innerHTML += `@font-face { font-family: "f${script_id}"; src: url("fonts/${script_id}.ttf"); }`
+  }
   document.body.appendChild(sheet);
 }
 
