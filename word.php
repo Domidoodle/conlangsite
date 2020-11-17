@@ -48,8 +48,7 @@ $conlang = $conlangs->fetch_assoc();
       </div>
       <div class="section">
         <div class="span">
-          <h1 style="font-family: <?php print "f" . $conlang['script_id']; ?>"><?php print $word['name'];?></h1>
-          <div style="width: 100%;"></div> <!-- this is literally just to space edit/delete from the word -->
+          <h1 style="flex-grow: 1; font-family: <?php print "f" . $conlang['script_id']; ?>"><?php print $word['name'];?></h1>
           <?php if(checkUserPerms($conn, $conlang["id"])) { ?>
           <a href="wordedit.php?w=<?php print $_GET["w"]?>">edit</a>
           <a onclick="deleteWord()">delete</a>
@@ -59,7 +58,7 @@ $conlang = $conlangs->fetch_assoc();
         <h3 style="color: #3C99DC">[<?php print $word['pronunciation'];?>]</h3>
 
         <?php
-        $pos = array("noun", "verb");  //OI: this order should probably come from somewhere else rather than be built in. Let users define pos for conlang?
+        $pos = array("noun", "verb", "adjective", "pronoun", "numeral");  //OI: this order should probably come from somewhere else rather than be built in. Let users define pos for conlang?
 
         foreach($pos as $class) {
           $meanings = $conn->query("SELECT * FROM meanings WHERE word_id=" . $_GET["w"] . " AND pos='" . $class . "'"); //finds meanings of certain part of speech
