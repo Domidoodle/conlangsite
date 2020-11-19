@@ -23,6 +23,8 @@ include "nav.php";
         You can view constructed languages made by the users of this site by going to the languages page.<br>
         You can sign up or log in in the top right, above the search bar.
       </p>
+      <p>
+        Please email siteadmin@domain.com for any copyright takedown requests
     </div>
   </div>
 </body>

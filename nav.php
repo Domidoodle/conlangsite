@@ -35,7 +35,7 @@ include "processor.php";
       <div class="header span margins" style="">
         <!-- <h1 style="padding-right: 10px;"><?php ?></h1> -->
         <div class="search">
-          <form class="span" onsubmit="return searching()">
+          <form class="span" onsubmit="return searching(); return false;" method="POST">
             <input id="search" type="text" name="search" placeholder="Search"/>
             <select id="searchType" name="searchType" onchange="updateSearchScript()">
               <option value="name">
