@@ -1,4 +1,6 @@
 <?php
+error_reporting(4);
+
 include 'setup.php';
 
 //error_reporting(E_ERROR | E_WARNING | E_PARSE);

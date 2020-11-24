@@ -12,8 +12,8 @@ function addScript() {
   fetch("processor.php", {
     method: "POST",
     body: formData
-  }).then((result) => {
-    console.log(result);
+  })
+  .then(function(result) {
     document.getElementById("feedback").innerText = result;
     searching();
   })
