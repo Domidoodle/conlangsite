@@ -58,11 +58,10 @@ if(isset($_POST["request"])) {
     if($_POST["request"] == "addMeaning") {
       $conn->query("INSERT INTO meanings (word_id) VALUES (" . $_POST["w"] . ")");
       $id = $conn->insert_id;
-      $n = 2;
       print '
       <ul>
       <form method="post" id="' . $id . '">
-      <p>Meaning #' . $n . '</p> <a onclick="delMeaning()">Delete</a>
+      <p>New Meaning</p> <a onclick="delMeaning()">Delete</a>
       <label for="pos"><p>Part of Speech</p></label>
       <select name="pos" onchange="saveMeaning()">
       <option selected disabled hidden>
@@ -82,6 +81,9 @@ if(isset($_POST["request"])) {
       </option>
       <option value="numeral">
       numeral
+      </option>
+      <option value="affix">
+      affix
       </option>
       </select>
       <label for="english"><p>English</p></label>
@@ -187,6 +189,9 @@ if(isset($_POST["request"])) {
               <option value="numeral">
                 numeral
               </option>
+              <option value="affix">
+              affix
+              </option>
             </select>
             <label for="english"><p>English</p></label>
             <input name="english" type="text" onfocusout="saveMeaning()" value="' . $meaning["english"] . '"/>
@@ -242,7 +247,7 @@ if(isset($_POST["request"])) {
 
   if($_POST["request"] == "getWords") {
     if ($_POST["searchField"] == "english") {
-      $words = $conn->query("SELECT * FROM words LEFT JOIN meanings ON words.id=meanings.word_id WHERE conlang_id={$_POST["l"]} AND {$_POST["searchField"]} LIKE \"%{$_POST["search"]}%\" ORDER BY words.name ASC LIMIT {$_POST["offset"]},{$_POST["limit"]}");
+      $words = $conn->query("SELECT words.* FROM words LEFT JOIN meanings ON words.id=meanings.word_id WHERE conlang_id={$_POST["l"]} AND {$_POST["searchField"]} LIKE \"%{$_POST["search"]}%\" ORDER BY words.name ASC LIMIT {$_POST["offset"]},{$_POST["limit"]}");
     } else {
       $words = $conn->query("SELECT * FROM words WHERE conlang_id={$_POST["l"]} AND {$_POST["searchField"]} LIKE \"%{$_POST["search"]}%\" ORDER BY name ASC LIMIT {$_POST["offset"]},{$_POST["limit"]}");
     }

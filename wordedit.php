@@ -18,6 +18,14 @@ if(!(checkUserPerms($conn, $conlang["id"]))) {
   print("You do not have access to this page.");
   die();
 }
+
+// conlang display name for fields and stuff
+if ($conlang["name_romanised"] == "") {
+  $name = $conlang["name"];
+} else {
+  $name = $conlang["name_romanised"];
+}
+
 ?>
 
 <head>
@@ -59,13 +67,14 @@ if(!(checkUserPerms($conn, $conlang["id"]))) {
   <div class="page">
     <div class="wrapper">
       <div class="pageHeader">
-        <b>LANGUAGE's Dictionary</b>
+        <b><?php print $name ?>'s Dictionary</b>
+        <a style="float: right;" href="wordedit.php?l=<?php print $conlang['id'] ?>">Add Word</a>
       </div>
       <div class="section" >
         <form method="post" id="wordInfo">
           <div class="span">
             <div class="spand" style="width: 150%;">
-              <label for="name"><p>Word in LANGUAGE</p></label>
+              <label for="name"><p>Word in <?php print $name ?></p></label>
               <input name="name" type="text" value="<?php print $word["name"]; ?>" style="font-family: <?php print "f" . $conlang['script_id'];?>;" onfocusout="save()"/>
               <label for="pronunciation"><p>Pronunciation (IPA)</p></label>
               <input name="pronunciation" type="text" value="<?php print $word["pronunciation"]; ?>"  onfocusout="save()"/>
