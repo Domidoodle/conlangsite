@@ -48,6 +48,9 @@ function deleteLanguage() {
         request: "deleteLanguage",
         l: params.get("l"),
       }
-    });
+    })
+      .then(function(result) {
+        location.href = "index.php";
+      });
   }
 }

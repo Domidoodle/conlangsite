@@ -82,10 +82,14 @@ if(isset($_GET["l"])) {
               </div>
             </div>
           </div>
+          <?php if(isset($_GET["l"])) { ?>
           <a onclick="deleteLanguage()"><br />DELETE Language</a>
+          <?php } ?>
         </form>
         <p>
+          <?php if(isset($_GET["l"])) { ?>
           This page automatically saves data.
+          <?php } ?>
         </p>
       </div>
     </div>
